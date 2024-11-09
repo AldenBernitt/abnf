@@ -1,0 +1,137 @@
+*NOTE (2024/10/29)* the current implementation of this abnf grammar parser
+assumes that characters are encoded using US-ASCII. for example, the character
+'a' is treated as the digit 0x61, and the character 'A' is treated as the digit
+0x41. future implementations may be interested in generalizing the treatment
+of character literals for any arbitrary encoding. for complete safety,
+consider using the number literal syntax in place of the character literal
+syntax (i.e. %x41.42.43 instead of "ABC").
+
+##### URGENT #####
+
+The current implementation does not support case-insensitive rule names.
+
+##### IMPORTANT NOTES #####
+
+Rule names are case insensitive.
+
+In ABNF, a character is merely a non-negative integer.
+In certain contexts, a specific mapping (encoding) of values into a character
+set (such as ASCII) will be specified.
+
+ABNF strings (such as "string") are case insensitive and the character set for
+these strings is US-ASCII.
+
+This specification for ABNF does not provide for implicit specification of
+linear white space (SP and HTAB). That is, whitespace is not implicitly
+collapsed by the grammar. Collapsed whitespace must be explicitly specified
+in the grammar itself.
+
+##### BACKLOG #####
+
+---FEATURES---
+
+* case insensitive rule names (for retrieval) *
+
+* pre-process input strings for rule definitions:
+    -- trimming excess whitespace 
+    *
+
+---OPTIMIZATIONS---
+
+* abnf_retrieve currently performs a linear search when looking for an entry
+    under a given name. this could be potentially improved by instead using
+    a map data structure to associate entry names with their data *
+
+* collapsing literal alternatives *
+
+    "a" / "b" / "c" --> "abc"(or)
+
+* substituting names *
+    
+    number = 1*digit
+    digit = %x30-39
+    -->
+    number 1*"0123456789" (or)
+
+---TESTING---
+
+* case-sensitive tag *
+
+    %i"Alden Bernitt"
+    %s"Alden Bernitt"
+
+* case sensitivity *
+
+    "abc" passes "abc", "Abc, "aBc", "abC", "ABc", "AbC", "aBC", and "ABC"
+
+* bracket collapse *
+
+    ((([((( "abc" )))]))) --> [ "abc" ]
+
+    ((((((( "abc" ))))))) --> ( "abc" )
+
+* literal extraction *
+
+    ( "abc" ) --> "abc"(and)
+
+* compressed repetition *
+
+    3"abc" --> "abcabcabc"(and)
+
+* compressed concatenation *
+
+    "a" "b" "c" --> "abc"
+
+    "a" "b" "0123456789"(or) "c" --> "ab" "0123456789"(or) "c"
+
+* empty rep/cat/alt *
+
+    0"a" / 0"x" 0"y" 0"x"  --> ""
+
+* repetition consolidation *
+    /*
+        CASE 1:
+        a*b( c*d( element )) -->
+            if c == 0, 0*n( element ) where n = b * d
+            if c == 1, a*n( element ) where n = b * d
+            otherwise, cannot be simplified.
+    
+        CASE 2:
+        a*b( c*d[ element ] )
+        == a*b( c*d( 0*1( element )))
+        == a*b( 0*d( element)) --> CASE 1
+
+        CASE 3:
+        a*b[ c*d( element )]
+        == a*b( 0*1( c*d( element )))
+        == 0*b( c*d( element )) --> CASE 1
+
+        CASE 4:
+        a*b[ c*d[ element]]
+        == a*b( 0*1( c*d( 0*1( element ))))
+        == a*b( 0*1( 0*d( element )))
+        == a*b( 0*d( element )) --> CASE 1
+    */
+
+    *(*(*(*(*(*"a"))))) --> *"a"
+
+    0*1( 1*2( 2*3( *4"a" ))) --> *24"a"
+
+* multiple calls to incremental define *
+
+    rule = "a"
+    rule =/ "b"
+    rule =/ "c"
+
+---TEST CASES---
+
+    2"abc" passes "abcabc" but fails "abcabcabcabc" ("abcabc" twice)
+
+    "x" 2"abc" passes "xabcabc" but fails "xabc"
+
+    2( %x61-63 ) fails "abcabc"
+
+    retrieve optional name
+
+    a*a( element )
+

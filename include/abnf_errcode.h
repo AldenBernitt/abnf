@@ -1,0 +1,14 @@
+#ifndef ABNF_ERRCODE_H
+#define ABNF_ERRCODE_H
+
+enum {
+    ABNF_NOERR,
+    ABNF_PARSEERR,
+    ABNF_MEMERR,
+    ABNF_DNE,
+    ABNF_DEFERR,
+    ABNF_OPTERR,
+    ABNF_NULL
+};
+
+#endif
