@@ -28,6 +28,7 @@ _Bool setup()
         && abnf_define(&grammar, "bigrange = 12*14\"+\"") == ABNF_NOERR
         && abnf_define(&grammar, "string = \"ab12\"") == ABNF_NOERR
         && abnf_define(&grammar, "strrange = 2*4\"ab12\"") == ABNF_NOERR
+        && abnf_define(&grammar, "strzero = 0\"ab12\"") == ABNF_NOERR
         && abnf_define(&grammar, "strmin = 2*\"ab12\"") == ABNF_NOERR
         && abnf_define(&grammar, "strmax = *2\"ab12\"") == ABNF_NOERR
         && abnf_define(&grammar, "strnolim = *\"ab12\"") == ABNF_NOERR
@@ -90,6 +91,7 @@ _Bool setup()
         && abnf_define(&grammar, "namealt = decrange / chmin") == ABNF_NOERR
         && abnf_define(&grammar, "namecat = alt chmin") == ABNF_NOERR
         && abnf_define(&grammar, "namenested = namealt") == ABNF_NOERR
+        && abnf_define(&grammar, "emptyname = 0string") == ABNF_NOERR
 
         /*
             abnf grammar definitions as described in
@@ -695,6 +697,18 @@ _Bool parse_strrange_error_too_many()
 _Bool parse_strrange_error_incomplete()
 {
     return test_parse_parseerr("strrange", "ab12ab12ab12ab");
+}
+
+//@TEST
+_Bool parse_strzero_empty()
+{
+    return test_parse_noerr("strzero", "");
+}
+
+//@TEST
+_Bool parse_strzero_error_nonempty()
+{
+    return test_parse_parseerr("strzero", "ab12");
 }
 
 //@TEST
@@ -2992,6 +3006,18 @@ _Bool parse_namenested_error_mixed5()
 _Bool parse_namenested_error_mixed6()
 {
     return test_parse_parseerr("namenested", "##c");
+}
+
+//@TEST
+_Bool parse_emptyname_empty()
+{
+    return test_parse_noerr("emptyname", "");
+}
+
+//@TEST
+_Bool parse_emptyname_error_nonempty()
+{
+    return test_parse_parseerr("emptyname", "ab12");
 }
 
 //@TEST

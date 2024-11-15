@@ -1,4 +1,4 @@
-_Bool compress_literal_seq(struct abnf_cat* cat, int start, int end)
+static _Bool compress_literal_seq(struct abnf_cat* cat, int start, int end)
 {
     size_t len = 0;
     for (int i = start; i <= end; i++) {
@@ -27,7 +27,7 @@ _Bool compress_literal_seq(struct abnf_cat* cat, int start, int end)
     return true;
 }
 
-_Bool remove_repseq(struct abnf_cat* cat, size_t start, size_t end)
+static _Bool remove_repseq(struct abnf_cat* cat, size_t start, size_t end)
 {
     size_t i;
 
@@ -59,7 +59,7 @@ _Bool remove_repseq(struct abnf_cat* cat, size_t start, size_t end)
     return true;
 }
 
-_Bool compress_cat_literals(struct abnf_cat* cat)
+static _Bool compress_cat_literals(struct abnf_cat* cat)
 {
     int start = -1;
     int end = -1;
@@ -112,7 +112,7 @@ _Bool compress_cat_literals(struct abnf_cat* cat)
     return true;
 }
 
-_Bool optimize_cat(struct abnf_cat* cat)
+static _Bool optimize_cat(struct abnf_cat* cat)
 {
     for (size_t i = 0; i < cat->count; i++) {
         if (!optimize_rep(&cat->reps[i])) {
@@ -124,7 +124,8 @@ _Bool optimize_cat(struct abnf_cat* cat)
         // counter can be adjusted after the removal.
 
         // a*0( element ) --> x
-        if (cat->reps[i].max == 0) {
+        // DON'T DELETE RULE NAMES.
+        if (cat->reps[i].ele.type != ELE_RULE && cat->reps[i].max == 0) {
             abnf_freerep(&cat->reps[i]);
 
             void* newarr;

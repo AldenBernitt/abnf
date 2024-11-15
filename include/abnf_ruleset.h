@@ -5,7 +5,10 @@
 
 enum {
     // RFC 5234 Appendix B.1.
-    ABNF_RULESET_CORE
+    ABNF_RULESET_CORE,
+
+    // RFC 3986 Appendix A
+    ABNF_RULESET_URI
 };
 
 int abnf_defineset(struct abnf* grammar, int ruleset);

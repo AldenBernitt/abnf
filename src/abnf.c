@@ -78,12 +78,14 @@ int abnf_retrieve(
     }
 
     if (!match) {
+        *strp = "";
         return ABNF_DNE;
     }
 
     struct result_entry* entry = &result->entries[i];
 
     if (index >= entry->len) {
+        *strp = "";
         return ABNF_DNE;
     }
 

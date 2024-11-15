@@ -631,6 +631,12 @@ _Bool define_elements_name_parse_error_empty()
 }
 
 //@TEST
+_Bool define_elements_repetition_zero()
+{
+    return test_elements_noerr("0abnf");
+}
+
+//@TEST
 _Bool define_elements_repetition()
 {
     return test_elements_noerr("9abnf");

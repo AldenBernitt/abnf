@@ -182,6 +182,14 @@ int abnf_parse(
 //          it must eventually be freed using abnf_freeresult to prevent a
 //          memory leak. it is not necessary to call abnf_freeresult between
 //          multiple calls of this function.
+//
+// *NOTE*   even if the retrieval fails, <strp> will be assigned an empty
+//          string
+//
+// *NOTE*   any rule defined with a repetition of zero (e.g. example = 0rule)
+//          will never be matched no matter the input. thus, attempting tok
+//          retrieve such a rule will always result in an error code of
+//          ABNF_DNE.
 int abnf_retrieve(
         struct abnf_result* result,
         const char* name,

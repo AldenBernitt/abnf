@@ -10,7 +10,7 @@ typedef struct {
 
 int main()
 {
-	testcase cases[144];
+	testcase cases[145];
 
 	cases[0].name = "define_name_alpha";
 	cases[0].test = define_name_alpha;
@@ -228,225 +228,228 @@ int main()
 	cases[71].name = "define_elements_name_parse_error_empty";
 	cases[71].test = define_elements_name_parse_error_empty;
 
-	cases[72].name = "define_elements_repetition";
-	cases[72].test = define_elements_repetition;
+	cases[72].name = "define_elements_repetition_zero";
+	cases[72].test = define_elements_repetition_zero;
 
-	cases[73].name = "define_elements_repetition_multiple_digits";
-	cases[73].test = define_elements_repetition_multiple_digits;
+	cases[73].name = "define_elements_repetition";
+	cases[73].test = define_elements_repetition;
 
-	cases[74].name = "define_elements_repetition_no_upper";
-	cases[74].test = define_elements_repetition_no_upper;
+	cases[74].name = "define_elements_repetition_multiple_digits";
+	cases[74].test = define_elements_repetition_multiple_digits;
 
-	cases[75].name = "define_elements_repetition_no_upper_multiple_digits";
-	cases[75].test = define_elements_repetition_no_upper_multiple_digits;
+	cases[75].name = "define_elements_repetition_no_upper";
+	cases[75].test = define_elements_repetition_no_upper;
 
-	cases[76].name = "define_elements_repetition_no_lower";
-	cases[76].test = define_elements_repetition_no_lower;
+	cases[76].name = "define_elements_repetition_no_upper_multiple_digits";
+	cases[76].test = define_elements_repetition_no_upper_multiple_digits;
 
-	cases[77].name = "define_elements_repetition_no_lower_multiple_digits";
-	cases[77].test = define_elements_repetition_no_lower_multiple_digits;
+	cases[77].name = "define_elements_repetition_no_lower";
+	cases[77].test = define_elements_repetition_no_lower;
 
-	cases[78].name = "define_elements_repetition_lower_and_upper";
-	cases[78].test = define_elements_repetition_lower_and_upper;
+	cases[78].name = "define_elements_repetition_no_lower_multiple_digits";
+	cases[78].test = define_elements_repetition_no_lower_multiple_digits;
 
-	cases[79].name = "define_elements_repetition_lower_and_upper_multiple_digits";
-	cases[79].test = define_elements_repetition_lower_and_upper_multiple_digits;
+	cases[79].name = "define_elements_repetition_lower_and_upper";
+	cases[79].test = define_elements_repetition_lower_and_upper;
 
-	cases[80].name = "define_elements_repetition_invalid";
-	cases[80].test = define_elements_repetition_invalid;
+	cases[80].name = "define_elements_repetition_lower_and_upper_multiple_digits";
+	cases[80].test = define_elements_repetition_lower_and_upper_multiple_digits;
 
-	cases[81].name = "define_elements_repetition_parse_error_double_star";
-	cases[81].test = define_elements_repetition_parse_error_double_star;
+	cases[81].name = "define_elements_repetition_invalid";
+	cases[81].test = define_elements_repetition_invalid;
 
-	cases[82].name = "define_elements_repetition_parse_error_multiple_stars";
-	cases[82].test = define_elements_repetition_parse_error_multiple_stars;
+	cases[82].name = "define_elements_repetition_parse_error_double_star";
+	cases[82].test = define_elements_repetition_parse_error_double_star;
 
-	cases[83].name = "define_elements_repetition_parse_error_multiple_stars2";
-	cases[83].test = define_elements_repetition_parse_error_multiple_stars2;
+	cases[83].name = "define_elements_repetition_parse_error_multiple_stars";
+	cases[83].test = define_elements_repetition_parse_error_multiple_stars;
 
-	cases[84].name = "define_elements_repetition_parse_error_invalid_number";
-	cases[84].test = define_elements_repetition_parse_error_invalid_number;
+	cases[84].name = "define_elements_repetition_parse_error_multiple_stars2";
+	cases[84].test = define_elements_repetition_parse_error_multiple_stars2;
 
-	cases[85].name = "define_elements_repetition_parse_error_contains_spaces";
-	cases[85].test = define_elements_repetition_parse_error_contains_spaces;
+	cases[85].name = "define_elements_repetition_parse_error_invalid_number";
+	cases[85].test = define_elements_repetition_parse_error_invalid_number;
 
-	cases[86].name = "define_elements_repetition_parse_error_contains_spaces2";
-	cases[86].test = define_elements_repetition_parse_error_contains_spaces2;
+	cases[86].name = "define_elements_repetition_parse_error_contains_spaces";
+	cases[86].test = define_elements_repetition_parse_error_contains_spaces;
 
-	cases[87].name = "define_elements_repetition_parse_error_contains_spaces3";
-	cases[87].test = define_elements_repetition_parse_error_contains_spaces3;
+	cases[87].name = "define_elements_repetition_parse_error_contains_spaces2";
+	cases[87].test = define_elements_repetition_parse_error_contains_spaces2;
 
-	cases[88].name = "define_elements_concatenation";
-	cases[88].test = define_elements_concatenation;
+	cases[88].name = "define_elements_repetition_parse_error_contains_spaces3";
+	cases[88].test = define_elements_repetition_parse_error_contains_spaces3;
 
-	cases[89].name = "define_elements_concatenation_multiple";
-	cases[89].test = define_elements_concatenation_multiple;
+	cases[89].name = "define_elements_concatenation";
+	cases[89].test = define_elements_concatenation;
 
-	cases[90].name = "define_elements_concatenation_multiple_spaces";
-	cases[90].test = define_elements_concatenation_multiple_spaces;
+	cases[90].name = "define_elements_concatenation_multiple";
+	cases[90].test = define_elements_concatenation_multiple;
 
-	cases[91].name = "define_elements_alternation";
-	cases[91].test = define_elements_alternation;
+	cases[91].name = "define_elements_concatenation_multiple_spaces";
+	cases[91].test = define_elements_concatenation_multiple_spaces;
 
-	cases[92].name = "define_elements_alternation_multiple";
-	cases[92].test = define_elements_alternation_multiple;
+	cases[92].name = "define_elements_alternation";
+	cases[92].test = define_elements_alternation;
 
-	cases[93].name = "define_elements_alternation_no_spaces";
-	cases[93].test = define_elements_alternation_no_spaces;
+	cases[93].name = "define_elements_alternation_multiple";
+	cases[93].test = define_elements_alternation_multiple;
 
-	cases[94].name = "define_elements_alternation_mixed_spaces";
-	cases[94].test = define_elements_alternation_mixed_spaces;
+	cases[94].name = "define_elements_alternation_no_spaces";
+	cases[94].test = define_elements_alternation_no_spaces;
 
-	cases[95].name = "define_elements_alternation_multiple_spaces";
-	cases[95].test = define_elements_alternation_multiple_spaces;
+	cases[95].name = "define_elements_alternation_mixed_spaces";
+	cases[95].test = define_elements_alternation_mixed_spaces;
 
-	cases[96].name = "define_elements_altnernation_newlines";
-	cases[96].test = define_elements_altnernation_newlines;
+	cases[96].name = "define_elements_alternation_multiple_spaces";
+	cases[96].test = define_elements_alternation_multiple_spaces;
 
-	cases[97].name = "define_elements_group";
-	cases[97].test = define_elements_group;
+	cases[97].name = "define_elements_altnernation_newlines";
+	cases[97].test = define_elements_altnernation_newlines;
 
-	cases[98].name = "define_elements_group_nested";
-	cases[98].test = define_elements_group_nested;
+	cases[98].name = "define_elements_group";
+	cases[98].test = define_elements_group;
 
-	cases[99].name = "define_elements_group_nested_mixed_spaces";
-	cases[99].test = define_elements_group_nested_mixed_spaces;
+	cases[99].name = "define_elements_group_nested";
+	cases[99].test = define_elements_group_nested;
 
-	cases[100].name = "define_elements_group_no_spaces";
-	cases[100].test = define_elements_group_no_spaces;
+	cases[100].name = "define_elements_group_nested_mixed_spaces";
+	cases[100].test = define_elements_group_nested_mixed_spaces;
 
-	cases[101].name = "define_elements_group_parse_error_empty";
-	cases[101].test = define_elements_group_parse_error_empty;
+	cases[101].name = "define_elements_group_no_spaces";
+	cases[101].test = define_elements_group_no_spaces;
 
-	cases[102].name = "define_elements_group_parse_error_empty_nested";
-	cases[102].test = define_elements_group_parse_error_empty_nested;
+	cases[102].name = "define_elements_group_parse_error_empty";
+	cases[102].test = define_elements_group_parse_error_empty;
 
-	cases[103].name = "define_elements_group_parse_error_no_close";
-	cases[103].test = define_elements_group_parse_error_no_close;
+	cases[103].name = "define_elements_group_parse_error_empty_nested";
+	cases[103].test = define_elements_group_parse_error_empty_nested;
 
-	cases[104].name = "define_elements_group_parse_error_mismatched_brackets";
-	cases[104].test = define_elements_group_parse_error_mismatched_brackets;
+	cases[104].name = "define_elements_group_parse_error_no_close";
+	cases[104].test = define_elements_group_parse_error_no_close;
 
-	cases[105].name = "define_elements_group_parse_error_different_brackets";
-	cases[105].test = define_elements_group_parse_error_different_brackets;
+	cases[105].name = "define_elements_group_parse_error_mismatched_brackets";
+	cases[105].test = define_elements_group_parse_error_mismatched_brackets;
 
-	cases[106].name = "define_elements_option";
-	cases[106].test = define_elements_option;
+	cases[106].name = "define_elements_group_parse_error_different_brackets";
+	cases[106].test = define_elements_group_parse_error_different_brackets;
 
-	cases[107].name = "define_elements_option_nested";
-	cases[107].test = define_elements_option_nested;
+	cases[107].name = "define_elements_option";
+	cases[107].test = define_elements_option;
 
-	cases[108].name = "define_elements_option_nested_mixed_spaces";
-	cases[108].test = define_elements_option_nested_mixed_spaces;
+	cases[108].name = "define_elements_option_nested";
+	cases[108].test = define_elements_option_nested;
 
-	cases[109].name = "define_elements_option_no_spaces";
-	cases[109].test = define_elements_option_no_spaces;
+	cases[109].name = "define_elements_option_nested_mixed_spaces";
+	cases[109].test = define_elements_option_nested_mixed_spaces;
 
-	cases[110].name = "define_elements_option_parse_error_empty";
-	cases[110].test = define_elements_option_parse_error_empty;
+	cases[110].name = "define_elements_option_no_spaces";
+	cases[110].test = define_elements_option_no_spaces;
 
-	cases[111].name = "define_elements_option_parse_error_empty_nested";
-	cases[111].test = define_elements_option_parse_error_empty_nested;
+	cases[111].name = "define_elements_option_parse_error_empty";
+	cases[111].test = define_elements_option_parse_error_empty;
 
-	cases[112].name = "define_elements_option_parse_error_no_close";
-	cases[112].test = define_elements_option_parse_error_no_close;
+	cases[112].name = "define_elements_option_parse_error_empty_nested";
+	cases[112].test = define_elements_option_parse_error_empty_nested;
 
-	cases[113].name = "define_elements_option_parse_error_mismatched_brackets";
-	cases[113].test = define_elements_option_parse_error_mismatched_brackets;
+	cases[113].name = "define_elements_option_parse_error_no_close";
+	cases[113].test = define_elements_option_parse_error_no_close;
 
-	cases[114].name = "define_elements_option_parse_error_different_brackets";
-	cases[114].test = define_elements_option_parse_error_different_brackets;
+	cases[114].name = "define_elements_option_parse_error_mismatched_brackets";
+	cases[114].test = define_elements_option_parse_error_mismatched_brackets;
 
-	cases[115].name = "define_generic";
-	cases[115].test = define_generic;
+	cases[115].name = "define_elements_option_parse_error_different_brackets";
+	cases[115].test = define_elements_option_parse_error_different_brackets;
 
-	cases[116].name = "define_generic1";
-	cases[116].test = define_generic1;
+	cases[116].name = "define_generic";
+	cases[116].test = define_generic;
 
-	cases[117].name = "define_generic2";
-	cases[117].test = define_generic2;
+	cases[117].name = "define_generic1";
+	cases[117].test = define_generic1;
 
-	cases[118].name = "define_generic3";
-	cases[118].test = define_generic3;
+	cases[118].name = "define_generic2";
+	cases[118].test = define_generic2;
 
-	cases[119].name = "define_generic4";
-	cases[119].test = define_generic4;
+	cases[119].name = "define_generic3";
+	cases[119].test = define_generic3;
 
-	cases[120].name = "define_generic5";
-	cases[120].test = define_generic5;
+	cases[120].name = "define_generic4";
+	cases[120].test = define_generic4;
 
-	cases[121].name = "define_generic6";
-	cases[121].test = define_generic6;
+	cases[121].name = "define_generic5";
+	cases[121].test = define_generic5;
 
-	cases[122].name = "define_generic7";
-	cases[122].test = define_generic7;
+	cases[122].name = "define_generic6";
+	cases[122].test = define_generic6;
 
-	cases[123].name = "define_generic8";
-	cases[123].test = define_generic8;
+	cases[123].name = "define_generic7";
+	cases[123].test = define_generic7;
 
-	cases[124].name = "define_generic9";
-	cases[124].test = define_generic9;
+	cases[124].name = "define_generic8";
+	cases[124].test = define_generic8;
 
-	cases[125].name = "define_generic10";
-	cases[125].test = define_generic10;
+	cases[125].name = "define_generic9";
+	cases[125].test = define_generic9;
 
-	cases[126].name = "define_generic11";
-	cases[126].test = define_generic11;
+	cases[126].name = "define_generic10";
+	cases[126].test = define_generic10;
 
-	cases[127].name = "define_generic12";
-	cases[127].test = define_generic12;
+	cases[127].name = "define_generic11";
+	cases[127].test = define_generic11;
 
-	cases[128].name = "define_generic13";
-	cases[128].test = define_generic13;
+	cases[128].name = "define_generic12";
+	cases[128].test = define_generic12;
 
-	cases[129].name = "define_generic14";
-	cases[129].test = define_generic14;
+	cases[129].name = "define_generic13";
+	cases[129].test = define_generic13;
 
-	cases[130].name = "define_generic15";
-	cases[130].test = define_generic15;
+	cases[130].name = "define_generic14";
+	cases[130].test = define_generic14;
 
-	cases[131].name = "define_generic16";
-	cases[131].test = define_generic16;
+	cases[131].name = "define_generic15";
+	cases[131].test = define_generic15;
 
-	cases[132].name = "define_generic17";
-	cases[132].test = define_generic17;
+	cases[132].name = "define_generic16";
+	cases[132].test = define_generic16;
 
-	cases[133].name = "define_generic18";
-	cases[133].test = define_generic18;
+	cases[133].name = "define_generic17";
+	cases[133].test = define_generic17;
 
-	cases[134].name = "define_generic19";
-	cases[134].test = define_generic19;
+	cases[134].name = "define_generic18";
+	cases[134].test = define_generic18;
 
-	cases[135].name = "define_multiple_lines";
-	cases[135].test = define_multiple_lines;
+	cases[135].name = "define_generic19";
+	cases[135].test = define_generic19;
 
-	cases[136].name = "define_trailing_wsp";
-	cases[136].test = define_trailing_wsp;
+	cases[136].name = "define_multiple_lines";
+	cases[136].test = define_multiple_lines;
 
-	cases[137].name = "define_multiple_defines";
-	cases[137].test = define_multiple_defines;
+	cases[137].name = "define_trailing_wsp";
+	cases[137].test = define_trailing_wsp;
 
-	cases[138].name = "define_parse_error_empty";
-	cases[138].test = define_parse_error_empty;
+	cases[138].name = "define_multiple_defines";
+	cases[138].test = define_multiple_defines;
 
-	cases[139].name = "define_parse_error_trailing_character";
-	cases[139].test = define_parse_error_trailing_character;
+	cases[139].name = "define_parse_error_empty";
+	cases[139].test = define_parse_error_empty;
 
-	cases[140].name = "define_parse_error_nl_nospace";
-	cases[140].test = define_parse_error_nl_nospace;
+	cases[140].name = "define_parse_error_trailing_character";
+	cases[140].test = define_parse_error_trailing_character;
 
-	cases[141].name = "define_option_nolim";
-	cases[141].test = define_option_nolim;
+	cases[141].name = "define_parse_error_nl_nospace";
+	cases[141].test = define_parse_error_nl_nospace;
 
-	cases[142].name = "define_value_upperlimit";
-	cases[142].test = define_value_upperlimit;
+	cases[142].name = "define_option_nolim";
+	cases[142].test = define_option_nolim;
 
-	cases[143].name = "define_error_double_define";
-	cases[143].test = define_error_double_define;
+	cases[143].name = "define_value_upperlimit";
+	cases[143].test = define_value_upperlimit;
+
+	cases[144].name = "define_error_double_define";
+	cases[144].test = define_error_double_define;
 
 	size_t passes = 0;
-	size_t total = 144;
-	for (size_t i = 0; i < 144; i++) {
+	size_t total = 145;
+	for (size_t i = 0; i < 145; i++) {
 		fprintf(FOUT, "%s...", cases[i].name);
 		if (cases[i].test()) {
 			fprintf(FOUT, "[32m" "PASSED" "[0m" "\n");

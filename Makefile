@@ -9,15 +9,10 @@ customobjdir = $(customincdir)obj/
 incswitch = -I$(incdir) -I$(customincdir)
 
 arrmem_o = $(customobjdir)arrmem.o
-varr_h = $(customincdir)varr.h
 varr_o = $(customobjdir)varr.o
-chstream_h = $(customincdir)chstream.h
 chstream_o = $(customobjdir)chstream.o
-strbuffer_h = $(customincdir)strbuffer.h
 strbuffer_o = $(customobjdir)strbuffer.o
-convert_h = $(customincdir)convert.h
 convert_o = $(customobjdir)convert.o
-strutil_h = $(customincdir)strutil.h
 strutil_o = $(customobjdir)strutil.o
 
 abnf_h = $(incdir)abnf.h
@@ -38,10 +33,14 @@ abnfdefineelements_c = $(srcdir)/define/abnf_define_elements.c
 parsenode_c = $(srcdir)/parse/parsenode.c
 abnfwrite_c = $(srcdir)/parse/abnf_write.c
 
+abnfruleset_h = $(incdir)abnf_ruleset.h
+abnfruleset_c = $(srcdir)abnf_ruleset.c
+abnfruleset_o = $(objdir)abnf_ruleset.o
+
 customobjs = $(arrmem_o) $(varr_o) $(chstream_o) $(strbuffer_o) $(convert_o)\
         $(strutil_o)
 
-objs = $(objdir)main.o $(abnf_o)
+objs = $(objdir)main.o $(abnf_o) $(abnfruleset_o)
 
 main : $(objs)
 	gcc $(LFLAGS) $(objs) $(customobjs) -o main
@@ -55,6 +54,9 @@ $(abnf_o) : $(abnf_c) $(abnf_h) $(abnferrcode_h) $(abnfdefs_c)\
 		$(abnfdefineelements_c) $(abnfoptimizerep_c) $(abnfoptimizecat_c)\
 		$(parsenode_c) $(abnfwrite_c)
 	gcc $(incswitch) $(CFLAGS) $(abnf_c) -o $(abnf_o)
+
+$(abnfruleset_o) : $(abnfruleset_c) $(abnfruleset_h)
+	gcc $(incswitch) $(CFLAGS) $(abnfruleset_c) -o $(abnfruleset_o)
 
 .PHONY : clean
 

@@ -1,8 +1,8 @@
 maketest = ~/maketest
 
-incswitch = -I/home/alden/C/projects/abnf/include/ -I/home/alden/C/include/
+incswitch = -I/home/alden/abnf/include/ -I/home/alden/C/include/
 
-objdir = ~/C/projects/abnf/obj/
+objdir = ~/abnf/obj/
 customobjdir = ~/C/include/obj/
 
 chstream_o = $(customobjdir)chstream.o

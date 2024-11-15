@@ -23,13 +23,21 @@ static _Bool remove_index(
         memcpy(dest, src, elemsize);
     }
 
-    *len--;
+    (*len)--;
 
-    // shrink the array to fit its new size
-    void* p = realloc(array, elemsize * *len);
-    if (!p) {
-        return false;
+
+    void* p = NULL;
+    if (*len > 0) {
+        // shrink the array to fit its new size
+        p = realloc(array, elemsize * *len);
+        if (!p) {
+            return false;
+        }
     }
+    else {
+        free(array);
+    }
+
     *newarr = p;
 
     return true;

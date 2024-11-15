@@ -1574,6 +1574,21 @@ _Bool retrieve_onerule_repeated_char_range_i2()
 }
 
 //@TEST
+_Bool retrieve_rule_repeated_zero_empty_dne()
+{
+    return test_rules(
+            "0rule",
+            "",
+            "rule",
+            0,
+            "",
+            ABNF_DNE,
+            "rule=\"abc\"",
+            ""
+    );
+}
+            
+//@TEST
 _Bool retrieve_rule_concat_first()
 {
     return test_rules(
